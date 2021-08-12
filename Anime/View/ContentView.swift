@@ -10,10 +10,14 @@ import SwiftUI
  The detail view
  */
 struct ContentView: View {
-    var anime: Results
+    var anime: Results?
     @Binding var showingSheet: Bool
     var body: some View {
-        Card(showingSheet: $showingSheet, contentModel: ContentViewModel(anime))
+        if let anime = anime {
+            Card(showingSheet: $showingSheet, contentModel: ContentViewModel(anime))
+        }else{
+            EmptyView()
+        }
     }
 }
 
@@ -38,16 +42,6 @@ struct Card: View {
             GeometryReader{ geo in
                 ZStack(alignment: .topLeading){
                     VStack{
-                        Button(action: {
-                            //dismiss()
-                            self.showingSheet = false
-                        }, label: {
-                            VStack{
-                                indicator
-                                    .frame(width: geo.size.width, height: 4, alignment: .center)
-                                    .padding(.top)
-                            }
-                        })
                         Text(contentModel.title)
                             .font(.headline)
                             .padding()
@@ -63,6 +57,7 @@ struct Card: View {
                             .font(.system(size: 14, weight: .semibold))
                     }
                 }.shadow(radius: constant.shadowRadius)
+                .padding(.bottom, 10)
             }
         }.padding()
     }
@@ -88,3 +83,17 @@ struct ContentView_Previews: PreviewProvider {
                     showingSheet: .constant(false))
     }
 }
+
+
+//Donot delete
+//                        Button(action: {
+//                            //dismiss()
+//                            self.showingSheet = false
+//                        }, label: {
+//                            VStack{
+//                                indicator
+//                                    .frame(width: geo.size.width, height: 4, alignment: .center)
+//                                    .padding(.top)
+//                            }
+//                        })
+

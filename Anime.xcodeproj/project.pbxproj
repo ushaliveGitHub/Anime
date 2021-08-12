@@ -16,6 +16,8 @@
 		4A33719926B3708B007AFB41 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33719826B3708B007AFB41 /* Service.swift */; };
 		4A33719B26B375E0007AFB41 /* AnimeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33719A26B375E0007AFB41 /* AnimeData.swift */; };
 		4A33719D26B386F1007AFB41 /* AnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33719C26B386F1007AFB41 /* AnimeViewModel.swift */; };
+		4A82E5FF26C46101002D0CD0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A82E5FE26C46101002D0CD0 /* Helper.swift */; };
+		4A9677B226C309920080CB2B /* SearchWithNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9677B126C309920080CB2B /* SearchWithNavigation.swift */; };
 		4AD2E01A26B742B300540F43 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD2E01926B742B200540F43 /* Anime.swift */; };
 		4AD2E01C26B75F3700540F43 /* Poster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD2E01B26B75F3700540F43 /* Poster.swift */; };
 		4AD2E01E26B7613C00540F43 /* PosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD2E01D26B7613C00540F43 /* PosterView.swift */; };
@@ -35,6 +37,9 @@
 		4A33719826B3708B007AFB41 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		4A33719A26B375E0007AFB41 /* AnimeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeData.swift; sourceTree = "<group>"; };
 		4A33719C26B386F1007AFB41 /* AnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeViewModel.swift; sourceTree = "<group>"; };
+		4A3FA99B26C2D5E000439A6A /* Anime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Anime.entitlements; sourceTree = "<group>"; };
+		4A82E5FE26C46101002D0CD0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		4A9677B126C309920080CB2B /* SearchWithNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchWithNavigation.swift; sourceTree = "<group>"; };
 		4AD2E01926B742B200540F43 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		4AD2E01B26B75F3700540F43 /* Poster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poster.swift; sourceTree = "<group>"; };
 		4AD2E01D26B7613C00540F43 /* PosterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PosterView.swift; sourceTree = "<group>"; };
@@ -73,6 +78,8 @@
 		4A33718526B3703D007AFB41 /* Anime */ = {
 			isa = PBXGroup;
 			children = (
+				4A82E5FE26C46101002D0CD0 /* Helper.swift */,
+				4A3FA99B26C2D5E000439A6A /* Anime.entitlements */,
 				4A33719426B3704D007AFB41 /* View */,
 				4A33719726B3706E007AFB41 /* Model */,
 				4A33719626B37066007AFB41 /* ViewModel */,
@@ -95,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				4A141BC526B4571B007418DD /* SearchAnime.swift */,
+				4A9677B126C309920080CB2B /* SearchWithNavigation.swift */,
 				4AE523F426B837E100F012AB /* SearchView.swift */,
 				4AE523F626B840EC00F012AB /* AnimeRow.swift */,
 				4A2F8EB526B4799D00BB4DC5 /* Info.swift */,
@@ -196,7 +204,9 @@
 			files = (
 				4AD2E01A26B742B300540F43 /* Anime.swift in Sources */,
 				4AE523F926B8449D00F012AB /* ContentViewModel.swift in Sources */,
+				4A82E5FF26C46101002D0CD0 /* Helper.swift in Sources */,
 				4A33719D26B386F1007AFB41 /* AnimeViewModel.swift in Sources */,
+				4A9677B226C309920080CB2B /* SearchWithNavigation.swift in Sources */,
 				4A2F8EB626B4799D00BB4DC5 /* Info.swift in Sources */,
 				4AE523F726B840EC00F012AB /* AnimeRow.swift in Sources */,
 				4A33718926B3703D007AFB41 /* ContentView.swift in Sources */,
@@ -334,7 +344,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Anime/Anime.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Anime/Preview Content\"";
@@ -352,9 +364,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Test.Anime;
+				PRODUCT_BUNDLE_IDENTIFIER = un.Anime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,6 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Anime/Anime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Anime/Preview Content\"";
@@ -385,6 +399,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Test.Anime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

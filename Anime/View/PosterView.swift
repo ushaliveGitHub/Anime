@@ -20,7 +20,7 @@ struct PosterView: View {
     var body: some View {
         Image(uiImage: photo.image ??  PosterView.placeHolder)
             .resizable()
-            //.scaledToFit() // I like the Image view streched 🙂
+            .scaledToFit() // I like the Image view streched 🙂
     }
     
     static var placeHolder = UIImage(named:"placeHolderImage") ?? UIImage()

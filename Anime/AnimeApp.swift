@@ -11,7 +11,8 @@ import SwiftUI
 struct AnimeApp: App {
     var body: some Scene {
         WindowGroup {
-            SearchAnime(animeItem: nil)
+            //SearchAnime(animeItem: nil)
+            SearchWithNavigation(animeItem: nil)
         }
     }
 }

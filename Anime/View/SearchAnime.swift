@@ -32,31 +32,28 @@ struct SearchAnime: View {
                                 anime.refreshData(searchText)
                             }
                     }
-                    
+
                     // The search results
                     ScrollView{
-                        LazyVGrid(columns:[GridItem(.fixed(Constants.columns))] ){
-                            ForEach(anime.results, id:\.mal_id){ item in
-                                AnimeRow(anime: item,
-                                         size: geo.size)
-                                    .frame(width: geo.size.width, height: geo.size.height / 4, alignment: .leading)
-                                    .onTapGesture {
-                                        self.animeItem = item
-                                        showingSheet.toggle()
-                                    }
-                            }.blur(radius: isEditing ? Constants.blurRadius : .zero) // blur when searching
-                        }
+                        ForEach(anime.results, id:\.mal_id){ item in
+                            AnimeRow(anime: item,
+                                     size: geo.size)
+                                .frame(width: geo.size.width, height: geo.size.height / 4, alignment: .leading)
+                                .onTapGesture {
+                                    self.animeItem = item
+                                    showingSheet.toggle()
+                                }
+                        }.blur(radius: isEditing ? Constants.blurRadius : .zero) // blur when searching
+                        //}
                     }.blur(radius: showingSheet ? Constants.blurRadius : .zero) // blur when presenting detail sheet
-                    .disabled(showingSheet || isEditing ) // Disable the scroll view when content detail or search view is presenting
+                        .disabled(showingSheet || isEditing ) // Disable the scroll view when content detail or search view is presenting
                 }
                 
                 // The Content Detail
                 VStack(spacing: .zero){
-                    if let animeItem = self.animeItem {
-                        ContentView(anime: animeItem, showingSheet: $showingSheet)
-                            .frame(height: geo.size.height)
-                            .layoutPriority(2)
-                    }
+                    ContentView(anime: animeItem, showingSheet: $showingSheet)
+                        .frame(height: geo.size.height)
+                        .layoutPriority(2)
                 }
                 .layoutPriority(1)
                 .frame(height: showingSheet ? nil : .zero, alignment: .top)

@@ -25,17 +25,21 @@ struct AnimeRow: View {
            PosterView(url: anime.image_url)
                 .frame(width: size.width / 3, alignment: .leading)
                 .cornerRadius(Constants.radius)
+                
             VStack(spacing: Constants.hSpace){
                 HStack {
                     Text(anime.title ?? "")
                         .font(.system(size: Constants.titleSize, weight: .semibold))
+                        .foregroundColor("text".colorForAsset())
                     Spacer()
-                    Image(systemName: "chevron.right")
-                        .foregroundColor(.blue)
+                    Image(systemName: "ellipsis")
+                        .foregroundColor("text".colorForAsset())
                         .font(.body)
                 }
                 Text(anime.synopsis ?? "")
                     .font(.system(size: Constants.synopsisSize, weight: .regular))
+                    .foregroundColor("text".colorForAsset())
+                    .multilineTextAlignment(.leading)
             }
         }.padding(EdgeInsets(top: .zero, leading: Constants.inset, bottom: .zero, trailing:  Constants.inset))
         
