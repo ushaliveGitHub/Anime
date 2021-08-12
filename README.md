@@ -14,7 +14,6 @@
 
 - The current search functionality is not an Autosuggest. Code can be refactored to enhance search to a true Autosuggest.
 
-- The anime detail is a slide up bottom draw. SwiftUI Navigation link works only on a device so, this is a work around. Code can be enhanced to embedd view in a Navigation and add navigation link. This would allow user to nav to the detail page. 
 
 **Prerequisites 
 
